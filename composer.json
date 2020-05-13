@@ -1,0 +1,67 @@
+{
+    "name": "soyhuce/laravel-docker",
+    "description": "Interact with a Docker instance",
+    "keywords": [
+        "docker",
+        "laravel",
+        "api",
+        "socket"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julien Roche",
+            "email": "julien.roche@soyhuce.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-curl": "^7.4",
+        "ext-json": "^7.4",
+        "spatie/data-transfer-object": "^1.13",
+        "illuminate/support": "^7.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0",
+        "phpunit/phpunit": "^9.0",
+        "nunomaduro/larastan": "^0.5.5",
+        "friendsofphp/php-cs-fixer": "^2.16"
+    },
+    "autoload": {
+        "psr-4": {
+            "Soyhuce\\Docker\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Soyhuce\\Docker\\ServiceProvider"
+            ]
+        }
+    },
+    "archive": {
+        "exclude": [
+            ".gitignore",
+            "composer.lock",
+            "vendor"
+        ]
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "test-coverage": "./vendor/bin/phpunit --coverage-html coverage",
+        "analyse": "./vendor/bin/phpstan analyse",
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
+        "all": [
+            "@test",
+            "@format",
+            "@analyse --level=max"
+        ]
+    }
+}
