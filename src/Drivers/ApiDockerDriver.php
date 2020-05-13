@@ -20,9 +20,9 @@ class ApiDockerDriver extends DockerDriver
                 'Content-type' => 'application/json',
             ], $headers))
                 ->{$this->method}(
-                $this->prepareUrl($path, $params),
-                $data
-            )
+                    $this->prepareUrl($path, $params),
+                    $data
+                )
                 ->throw();
 
         return json_decode($response->body(), true);
