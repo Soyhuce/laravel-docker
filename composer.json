@@ -1,6 +1,6 @@
 {
     "name": "soyhuce/docker-php",
-    "description": "Interact with Docker instance",
+    "description": "Interact with a Docker instance",
     "keywords": [
         "docker",
         "laravel",
