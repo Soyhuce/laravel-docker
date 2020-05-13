@@ -1,8 +1,8 @@
 # Docker
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/soyhuce/docker-php.svg?style=flat-square)](https://packagist.org/packages/soyhuce/docker-php)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/soyhuce/docker-php/run-tests?label=tests)
-[![Total Downloads](https://img.shields.io/packagist/dt/soyhuce/docker-php.svg?style=flat-square)](https://packagist.org/packages/soyhuce/docker-php)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/soyhuce/laravel-docker.svg?style=flat-square)](https://packagist.org/packages/soyhuce/laravel-docker)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/soyhuce/laravel-docker/run-tests?label=tests)
+[![Total Downloads](https://img.shields.io/packagist/dt/soyhuce/laravel-docker.svg?style=flat-square)](https://packagist.org/packages/soyhuce/laravel-docker)
 
 This package allows you to communicate with a Docker instance via unix socket or API.
 
@@ -12,7 +12,7 @@ API mode is based on [API Docker Engine](https://docs.docker.com/engine/api/v1.4
 
 You can install the package via composer:
  
- `composer require soyhuce/docker-php`
+ `composer require soyhuce/laravel-docker`
 
 ## Utilisation
 

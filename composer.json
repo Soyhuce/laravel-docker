@@ -1,5 +1,5 @@
 {
-    "name": "soyhuce/docker-php",
+    "name": "soyhuce/laravel-docker",
     "description": "Interact with a Docker instance",
     "keywords": [
         "docker",
