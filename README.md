@@ -62,7 +62,10 @@ You can also use the unix socket to connect to Docker :
 #### Working with Docker containers
 
 * create($imageName, $containerName) : Create a container from an image
-* start($containerId) : Start a container from its id
+* start($containerId) : Start a container from its name or id
+* stop($containerId) : Stop a container from its name or id
+* wait($containerId) : Wait a container from its name or id
+* delete($containerId) : Delete a container from its name or id
 
 #### Working with Docker images
 

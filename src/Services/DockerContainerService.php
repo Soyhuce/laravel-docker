@@ -46,4 +46,22 @@ class DockerContainerService extends DockerService
 
         return true;
     }
+
+    public function wait(string $containerId): bool
+    {
+        $this->driver()
+            ->asPost()
+            ->send("/containers/{$containerId}/wait");
+
+        return true;
+    }
+
+    public function delete(string $containerId): bool
+    {
+        $this->driver()
+            ->asDelete()
+            ->send("/containers/{$containerId}");
+
+        return true;
+    }
 }
