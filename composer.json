@@ -20,7 +20,7 @@
         "php": "^7.4",
         "ext-curl": "^7.4",
         "ext-json": "^7.4",
-        "spatie/data-transfer-object": "^1.13",
+        "spatie/data-transfer-object": "^1.13||^2.0",
         "illuminate/support": "^7.5"
     },
     "require-dev": {
