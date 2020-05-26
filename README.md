@@ -24,7 +24,7 @@ Publish configuration file via:
 
 #### API
 
-To use this package with API drive, you need to expose Docker on HTTP port.
+To use this package with API drive, you can expose Docker on HTTP port.
 
 For example, you can do this: 
 
@@ -43,6 +43,21 @@ So, in your configuration file, you have to define your configuration file like 
     ],
 ]
 ```
+
+You can also use the unix socket to connect to Docker :
+
+```
+[
+    'driver' => 'api',
+    'version' => 'v1.40',
+    'drivers' => [
+        'socket' => [
+            'unix_socket' => '/var/run/docker.sock',
+        ],
+    ],
+]
+```
+
 
 #### Working with Docker containers
 
