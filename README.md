@@ -24,7 +24,7 @@ Publish configuration file via:
 
 #### API
 
-To use this package with API drive, you need to expose Docker on HTTP port.
+To use this package with API drive, you can expose Docker on HTTP port.
 
 For example, you can do this: 
 
@@ -44,10 +44,28 @@ So, in your configuration file, you have to define your configuration file like 
 ]
 ```
 
+You can also use the unix socket to connect to Docker :
+
+```
+[
+    'driver' => 'api',
+    'version' => 'v1.40',
+    'drivers' => [
+        'socket' => [
+            'unix_socket' => '/var/run/docker.sock',
+        ],
+    ],
+]
+```
+
+
 #### Working with Docker containers
 
 * create($imageName, $containerName) : Create a container from an image
-* start($containerId) : Start a container from its id
+* start($containerId) : Start a container from its name or id
+* stop($containerId) : Stop a container from its name or id
+* wait($containerId) : Wait a container from its name or id
+* delete($containerId) : Delete a container from its name or id
 
 #### Working with Docker images
 
