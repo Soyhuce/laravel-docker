@@ -6,9 +6,7 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 ### Added
 
-- DockerContainerService::wait
-- DockerContainerService::delete
-- Support for spatie/data-transfert-object:^2.0
+- Nothing
 
 ### Changed
 
@@ -25,6 +23,14 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 ### Security
 
 - Nothing
+
+## [1.4.0] - 2020-05-26
+
+### Added
+
+- DockerContainerService::wait
+- DockerContainerService::delete
+- Support for spatie/data-transfert-object:^2.0
 
 ## [1.3.0] - 2020-05-13
 
