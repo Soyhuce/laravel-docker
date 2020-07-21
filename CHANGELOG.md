@@ -24,6 +24,12 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 - Nothing
 
+## [1.4.1] - 2020-07-21
+
+### Fixed
+
+- Merge recursively options when docker container created
+
 ## [1.4.0] - 2020-05-26
 
 ### Added
