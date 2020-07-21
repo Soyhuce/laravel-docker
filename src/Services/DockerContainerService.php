@@ -13,7 +13,7 @@ class DockerContainerService extends DockerService
             ->send(
                 '/containers/create',
                 ['name' => $containerName],
-                array_merge(
+                array_merge_recursive(
                     $options,
                     [
                         'Image' => $imageName,
