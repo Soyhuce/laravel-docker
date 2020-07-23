@@ -13,11 +13,14 @@ class DockerContainerService extends DockerService
             ->send(
                 '/containers/create',
                 ['name' => $containerName],
-                array_merge_recursive(
+                array_merge(
                     $options,
                     [
                         'Image' => $imageName,
-                        'HostConfig' => ['AutoRemove' => true],
+                        'HostConfig' => [
+                            'AutoRemove' => true,
+                            'ExtraHosts' => config('docker.extra_hosts'),
+                        ],
                     ]
                 )
             );

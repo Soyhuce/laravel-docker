@@ -24,6 +24,12 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 - Nothing
 
+## [1.4.2] - 2020-07-23
+
+### Added
+
+- Add extra_hosts options
+
 ## [1.4.1] - 2020-07-21
 
 ### Fixed

@@ -11,4 +11,5 @@ return [
             'unix_socket' => '/var/run/docker.sock',
         ],
     ],
+    'extra_hosts' => [],
 ];
