@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         php: [7.4]
-        laravel: [7.*]
+        laravel: [7.*, 8.*]
         composer: [^1.9, ^2.0]
         dependency-version: [prefer-lowest, prefer-stable]
         include:
@@ -40,6 +40,6 @@ jobs:
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "composer/composer:${{ matrix.composer }}" ${{ matrix.extra }} --no-interaction --no-update
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
-
+      
       - name: Execute tests
         run: vendor/bin/phpunit
