@@ -24,6 +24,12 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 - Nothing
 
+## [1.4.3] - 2020-09-03
+
+### Added
+
+- Allow installing composer/composer ^2.0
+
 ## [1.4.2] - 2020-07-23
 
 ### Added
