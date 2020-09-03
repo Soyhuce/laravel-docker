@@ -24,6 +24,12 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 - Nothing
 
+## [1.4.4] - 2020-09-03
+
+### Fixed
+
+- Fixes run-tests job
+
 ## [1.4.3] - 2020-09-03
 
 ### Added
