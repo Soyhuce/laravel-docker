@@ -64,5 +64,11 @@
             "@format",
             "@analyse --level=max"
         ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
     }
 }
