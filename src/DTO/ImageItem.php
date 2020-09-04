@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class ImageItem extends DockerItem
 {
-    protected $exceptKeys = ['repoTags'];
+    protected array $exceptKeys = ['repoTags'];
 
     public string $id;
 

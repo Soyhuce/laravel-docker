@@ -50,6 +50,7 @@
     "archive": {
         "exclude": [
             ".gitignore",
+            ".php_cs",
             "composer.lock",
             "vendor"
         ]
