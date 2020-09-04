@@ -6,12 +6,12 @@ parameters:
   paths:
     - src
 
-  level: 8
+  # Level 8 is max
+  level: 7
 
   ignoreErrors:
     - '#Property [a-zA-Z\\]+::\$([a-zA-Z]+)? \(resource\) does not accept resource\|false.#'
     - '#Parameter \#1 \$mh of function curl_multi_add_handle expects resource, resource\|false given#'
-    - '#Parameter \#3 \$length of function substr expects int, int\|false given.#'
     - '#Parameter \#3 \$length of function mb_substr expects int\|null, int\|false given.#'
 
   checkMissingIterableValueType: false

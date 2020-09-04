@@ -1,14 +1,7 @@
 <?php
 
-$finder = Symfony\Component\Finder\Finder::create()
-    ->notPath('docs/*')
-    ->notPath('vendor')
-    ->in([
-        __DIR__.'/src',
-    ])
-    ->name('*.php')
-    ->ignoreDotFiles(true)
-    ->ignoreVCS(true);
+$finder = PhpCsFixer\Finder::create()
+    ->in(['src', 'tests']);
 
 return PhpCsFixer\Config::create()
     ->setRules([
@@ -171,8 +164,8 @@ return PhpCsFixer\Config::create()
         'trim_array_spaces' => true,
         'unary_operator_spaces' => true,
         'whitespace_after_comma_in_array' => true,
-        'yoda_style'=> [
-            'always_move_variable'=> false,
+        'yoda_style' => [
+            'always_move_variable' => false,
             'equal' => false,
             'identical' => false,
             'less_and_greater' => null,

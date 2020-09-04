@@ -4,7 +4,6 @@ namespace Test\Unit;
 
 use Mockery;
 use Soyhuce\Docker\DTO\ContainerCreateItem;
-use Soyhuce\Docker\Result\EmptyResult;
 use Soyhuce\Docker\Services\DockerContainerService;
 use Test\TestCase;
 
@@ -43,7 +42,7 @@ class DockerContainerServiceTest extends TestCase
             ]))
             ->once();
 
-        app()->bind(DockerContainerService::class, fn() => $this->mock);
+        app()->bind(DockerContainerService::class, fn () => $this->mock);
 
         $response = app(DockerContainerService::class)->create('soyhuce/image:latest', 'mon-image');
 
@@ -67,7 +66,7 @@ class DockerContainerServiceTest extends TestCase
             ->andReturn(true)
             ->once();
 
-        app()->bind(DockerContainerService::class, fn() => $this->mock);
+        app()->bind(DockerContainerService::class, fn () => $this->mock);
 
         $response = app(DockerContainerService::class)->start('123456789');
 
