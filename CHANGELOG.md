@@ -24,6 +24,12 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 - Nothing
 
+## [1.5.0] - 2020-11-10
+
+### Added
+
+- Support PHP 8
+
 ## [1.4.5] - 2020-09-04
 
 ### Changed
