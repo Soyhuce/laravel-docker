@@ -2,8 +2,10 @@
 
 namespace Soyhuce\Docker;
 
+use Exception;
 use Soyhuce\Docker\Model\Response;
 use Soyhuce\Docker\Model\StreamResponse;
+use function is_callable;
 
 class DockerClient
 {
@@ -20,14 +22,14 @@ class DockerClient
     private function getUrl(string $path, array $params = []): string
     {
         if ($path[0] !== '/') {
-            throw new \Exception("${path} must begin with /");
+            throw new Exception("{$path} must begin with /");
         }
 
         $version = $this->version ? '/' . $this->version : '';
-        $url = "{$this->scheme}:${version}${path}";
+        $url = "{$this->scheme}:{$version}{$path}";
         $query = http_build_query($params);
 
-        return mb_strlen($query) ? "${url}?${query}" : $url;
+        return mb_strlen($query) ? "{$url}?{$query}" : $url;
     }
 
     private function makeRequest(string $url, ?callable $callback = null, ?array $data = null, array $headers = []): array
@@ -48,7 +50,7 @@ class DockerClient
         });
 
         if (is_callable($callback)) {
-            call_user_func($callback, $ch);
+            $callback($ch);
         }
 
         if ($data !== null) {
@@ -85,7 +87,7 @@ class DockerClient
     public function delete(string $path, array $params = [], ?array $data = null, array $headers = []): array
     {
         $url = $this->getUrl($path, $params);
-        $callback = static function ($ch) {
+        $callback = static function ($ch): void {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
         };
 
@@ -95,7 +97,7 @@ class DockerClient
     public function post(string $path, array $params = [], array $data = [], array $headers = []): array
     {
         $url = $this->getUrl($path, $params);
-        $callback = static function ($ch) {
+        $callback = static function ($ch): void {
             curl_setopt($ch, CURLOPT_POST, 1);
         };
 
@@ -105,7 +107,7 @@ class DockerClient
     public function put(string $path, array $params = [], array $data = [], array $headers = []): array
     {
         $url = $this->getUrl($path, $params);
-        $callback = static function ($ch) {
+        $callback = static function ($ch): void {
             curl_setopt($ch, CURLOPT_PUT, 1);
         };
 

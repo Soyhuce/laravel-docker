@@ -35,7 +35,7 @@ class DockerImageService extends DockerService
         $this->driver()
             ->asDelete()
             ->send(
-                "/images/${imageName}",
+                "/images/{$imageName}",
                 $options
             );
 

@@ -17,7 +17,7 @@ class DockerTest extends TestCase
      * @test
      * @covers ::createApiDriver
      */
-    public function apiDriverCanBeCreated()
+    public function apiDriverCanBeCreated(): void
     {
         $driver = app(Docker::class)->driver('api');
 
@@ -28,7 +28,7 @@ class DockerTest extends TestCase
      * @test
      * @covers ::createSocketDriver
      */
-    public function socketDriverCanBeCreated()
+    public function socketDriverCanBeCreated(): void
     {
         $driver = app(Docker::class)->driver('socket');
 
@@ -39,7 +39,7 @@ class DockerTest extends TestCase
      * @test
      * @covers ::driver
      */
-    public function notFoundDriverThrowsException()
+    public function notFoundDriverThrowsException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Driver [foo] is not supported.');
@@ -51,7 +51,7 @@ class DockerTest extends TestCase
      * @test
      * @covers ::driver
      */
-    public function driverIsASingleton()
+    public function driverIsASingleton(): void
     {
         $first = app(Docker::class)->driver();
         $second = app(Docker::class)->driver();

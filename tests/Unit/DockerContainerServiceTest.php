@@ -12,9 +12,7 @@ use Test\TestCase;
  */
 class DockerContainerServiceTest extends TestCase
 {
-    /**
-     * @var \Mockery\LegacyMockInterface|\Mockery\MockInterface|\Soyhuce\Docker\Services\DockerContainerService
-     */
+    /** @var \Mockery\LegacyMockInterface|\Mockery\MockInterface|\Soyhuce\Docker\Services\DockerContainerService */
     private $mock;
 
     protected function setUp(): void
@@ -30,7 +28,7 @@ class DockerContainerServiceTest extends TestCase
      * @test
      * @covers ::create
      */
-    public function containerIsCreated()
+    public function containerIsCreated(): void
     {
         $this->mock->shouldReceive('create')
             ->withArgs(static function (string $imageName, string $containerName) {
@@ -57,7 +55,7 @@ class DockerContainerServiceTest extends TestCase
      * @test
      * @covers ::create
      */
-    public function containerIsStarted()
+    public function containerIsStarted(): void
     {
         $this->mock->shouldReceive('start')
             ->withArgs(static function (string $uuid) {
