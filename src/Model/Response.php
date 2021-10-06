@@ -2,6 +2,9 @@
 
 namespace Soyhuce\Docker\Model;
 
+use function array_slice;
+use function count;
+
 class Response
 {
     protected StreamResponse $response;

@@ -36,12 +36,12 @@ class Docker
             return $this->{$driverMethod}($config);
         }
 
-        throw new InvalidArgumentException("Driver [${name}] is not supported.");
+        throw new InvalidArgumentException("Driver [{$name}] is not supported.");
     }
 
     protected function getConfig(string $name): ?array
     {
-        return config("docker.drivers.${name}");
+        return config("docker.drivers.{$name}");
     }
 
     protected function createSocketDriver(array $config): DockerDriver

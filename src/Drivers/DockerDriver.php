@@ -17,7 +17,7 @@ abstract class DockerDriver
         $url = $this->getUrl() . '/' . config('docker.version') . $path;
         $query = http_build_query($params);
 
-        return mb_strlen($query) ? "${url}?${query}" : $url;
+        return mb_strlen($query) ? "{$url}?{$query}" : $url;
     }
 
     abstract public function send(string $path, array $params = [], ?array $data = null, array $headers = []): array;
