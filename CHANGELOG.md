@@ -24,6 +24,12 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 - Nothing
 
+## [1.5.1] - 2021-10-06
+
+### Fixed
+
+- Larastan is dev dependencies
+
 ## [1.5.0] - 2020-11-10
 
 ### Added
