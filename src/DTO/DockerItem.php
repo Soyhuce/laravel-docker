@@ -2,9 +2,9 @@
 
 namespace Soyhuce\Docker\DTO;
 
-use Spatie\DataTransferObject\FlexibleDataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 
-abstract class DockerItem extends FlexibleDataTransferObject
+abstract class DockerItem extends DataTransferObject
 {
     use FormatKeys;
 

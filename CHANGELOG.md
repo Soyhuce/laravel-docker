@@ -24,6 +24,12 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 - Nothing
 
+## [1.5.3] - 2021-10-07
+
+### Fixed
+
+- Correction test
+
 ## [1.5.2] - 2021-10-07
 
 ### Fixed
