@@ -42,9 +42,6 @@
     }
   },
   "extra": {
-    "branch-alias": {
-      "dev-main": "dev-master"
-    },
     "laravel": {
       "providers": [
         "Soyhuce\\Docker\\ServiceProvider"
