@@ -9,7 +9,7 @@ trait FormatKeys
     public function formatKeys(array $parameters): array
     {
         return collect($parameters)->flatMap(static function ($value, $key) {
-            return [Str::camel($key) => $value];
+            return [Str::camel((string) $key) => $value];
         })->all();
     }
 }
