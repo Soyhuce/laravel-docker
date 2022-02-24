@@ -1,5 +1,5 @@
 {
     "require-dev": {
-        "nunomaduro/larastan": "^0.7.13"
+        "nunomaduro/larastan": "^2.0.0"
     }
 }

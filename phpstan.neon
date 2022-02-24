@@ -6,8 +6,7 @@ parameters:
   paths:
     - src
 
-  # Level 8 is max
-  level: 7
+  level: 8
 
   ignoreErrors:
     - '#Property [a-zA-Z\\]+::\$([a-zA-Z]+)? \(resource\) does not accept CurlHandle.#'
@@ -19,6 +18,6 @@ parameters:
     - '#Parameter \#1 \$handle of function curl_getinfo expects CurlHandle, resource given.#'
     - '#Parameter \#1 \$multi_handle of function curl_multi_exec expects CurlMultiHandle, resource given.#'
     - '#Parameter \#1 \$multi_handle of function curl_multi_close expects CurlMultiHandle, resource given.#'
-    - '#Parameter \#3 \$length of function mb_substr expects int\|null, int\|false given#'
+    - '#Parameter \#3 \$length of function mb_substr expects int\|null, int<0, max>\|false given#'
 
   checkMissingIterableValueType: false
