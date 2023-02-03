@@ -1,5 +1,5 @@
 includes:
-  - ./vendor-bin/phpstan/vendor/nunomaduro/larastan/extension.neon
+  - ./vendor/nunomaduro/larastan/extension.neon
 
 parameters:
 
