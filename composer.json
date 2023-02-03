@@ -21,12 +21,13 @@
     "ext-curl": "*",
     "ext-json": "*",
     "spatie/data-transfer-object": "^3.9",
-    "illuminate/support": "^9.0"
+    "illuminate/support": "^9.0 || ^10.0"
   },
   "require-dev": {
-    "bamarni/composer-bin-plugin": "^1.4",
+    "friendsofphp/php-cs-fixer": "^3.13",
     "mockery/mockery": "^1.4",
-    "orchestra/testbench": "^7.0",
+    "nunomaduro/larastan": "^2.3",
+    "orchestra/testbench": "^7.0 || ^8.0",
     "phpunit/phpunit": "^9.5"
   },
   "autoload": {
@@ -55,12 +56,10 @@
     ]
   },
   "scripts": {
-    "post-install-cmd": "@composer bin all install --ansi",
-    "post-update-cmd": "@composer bin all update --ansi",
     "test": "./vendor/bin/phpunit",
     "test-coverage": "./vendor/bin/phpunit --coverage-html coverage",
     "analyse": "./vendor/bin/phpstan analyse",
-    "format": "vendor/bin/php-cs-fixer fix",
+    "format": "PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix",
     "all": [
       "@format",
       "@test",
@@ -71,9 +70,6 @@
   "prefer-stable": true,
   "config": {
     "preferred-install": "dist",
-    "sort-packages": true,
-    "allow-plugins": {
-      "bamarni/composer-bin-plugin": true
-    }
+    "sort-packages": true
   }
 }
