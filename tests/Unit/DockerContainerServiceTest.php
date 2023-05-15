@@ -4,17 +4,16 @@
 
 namespace Test\Unit;
 
-use Mockery;
 use Soyhuce\Docker\Data\ContainerCreateItem;
 use Soyhuce\Docker\Services\DockerContainerService;
 
 beforeEach(function (): void {
     config()->set(['docker.driver' => 'api']);
-    $this->mock = Mockery::mock(DockerContainerService::class);
 });
 
 test('container is created', function (): void {
-    $this->mock->shouldReceive('create')
+    $mock = $this->mock(DockerContainerService::class);
+    $mock->shouldReceive('create')
         ->withArgs(static function (string $imageName, string $containerName) {
             return $imageName === 'soyhuce/image:latest' && $containerName == 'mon-image';
         })
@@ -23,8 +22,6 @@ test('container is created', function (): void {
             'Warnings' => null,
         ]))
         ->once();
-
-    app()->bind(DockerContainerService::class, fn () => $this->mock);
 
     $response = app(DockerContainerService::class)->create('soyhuce/image:latest', 'mon-image');
 
@@ -37,14 +34,13 @@ test('container is created', function (): void {
 });
 
 test('container is started', function (): void {
-    $this->mock->shouldReceive('start')
+    $mock = $this->mock(DockerContainerService::class);
+    $mock->shouldReceive('start')
         ->withArgs(static function (string $uuid) {
             return $uuid === '123456789';
         })
         ->andReturn(true)
         ->once();
-
-    app()->bind(DockerContainerService::class, fn () => $this->mock);
 
     $response = app(DockerContainerService::class)->start('123456789');
 

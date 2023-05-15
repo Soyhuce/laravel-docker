@@ -5,24 +5,21 @@
 namespace Test\Unit;
 
 use Illuminate\Support\Facades\Http;
-use Mockery;
 use Soyhuce\Docker\Data\ImageItem;
 use Soyhuce\Docker\Services\DockerImageService;
 
 beforeEach(function (): void {
     config()->set(['docker.driver' => 'api']);
-    $this->mock = Mockery::mock(DockerImageService::class);
 });
 
 test('image is created', function (): void {
-    $this->mock->shouldReceive('create')
+    $mock = $this->mock(DockerImageService::class);
+    $mock->shouldReceive('create')
         ->withArgs(static function (string $imageName, string $containerName) {
             return $imageName === 'soyhuce/image:latest' && $containerName == 'mon-image';
         })
         ->andReturn(true)
         ->once();
-
-    app()->bind(DockerImageService::class, fn () => $this->mock);
 
     $response = app(DockerImageService::class)->create('soyhuce/image:latest', 'mon-image');
 
@@ -30,14 +27,13 @@ test('image is created', function (): void {
 });
 
 test('image is removed', function (): void {
-    $this->mock->shouldReceive('remove')
+    $mock = $this->mock(DockerImageService::class);
+    $mock->shouldReceive('remove')
         ->withArgs(static function (string $imageName) {
             return $imageName === 'soyhuce/image:latest';
         })
         ->andReturn(true)
         ->once();
-
-    app()->bind(DockerImageService::class, fn () => $this->mock);
 
     $response = app(DockerImageService::class)->remove('soyhuce/image:latest');
 
