@@ -1,61 +1,32 @@
 <?php
 
+/** @covers \Soyhuce\Docker\Drivers\Docker */
+
 namespace Test\Unit;
 
 use InvalidArgumentException;
 use Soyhuce\Docker\Drivers\ApiDockerDriver;
 use Soyhuce\Docker\Drivers\Docker;
 use Soyhuce\Docker\Drivers\SocketDockerDriver;
-use Test\TestCase;
 
-/**
- * @coversDefaultClass \Soyhuce\Docker\Drivers\Docker
- */
-class DockerTest extends TestCase
-{
-    /**
-     * @test
-     * @covers ::createApiDriver
-     */
-    public function apiDriverCanBeCreated(): void
-    {
-        $driver = app(Docker::class)->driver('api');
+test('api driver created', function (): void {
+    $driver = app(Docker::class)->driver('api');
 
-        $this->assertInstanceOf(ApiDockerDriver::class, $driver);
-    }
+    expect($driver)->toBeInstanceOf(ApiDockerDriver::class);
+});
 
-    /**
-     * @test
-     * @covers ::createSocketDriver
-     */
-    public function socketDriverCanBeCreated(): void
-    {
-        $driver = app(Docker::class)->driver('socket');
+test('socket driver created', function (): void {
+    $driver = app(Docker::class)->driver('socket');
 
-        $this->assertInstanceOf(SocketDockerDriver::class, $driver);
-    }
+    expect($driver)->toBeInstanceOf(SocketDockerDriver::class);
+});
+test('driver not found throw exception', function (): void {
+    app(Docker::class)->driver('foo');
+})->throws(InvalidArgumentException::class, 'Driver [foo] is not supported.');
 
-    /**
-     * @test
-     * @covers ::driver
-     */
-    public function notFoundDriverThrowsException(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Driver [foo] is not supported.');
+test('driver is a singleton', function (): void {
+    $first = app(Docker::class)->driver();
+    $second = app(Docker::class)->driver();
 
-        app(Docker::class)->driver('foo');
-    }
-
-    /**
-     * @test
-     * @covers ::driver
-     */
-    public function driverIsASingleton(): void
-    {
-        $first = app(Docker::class)->driver();
-        $second = app(Docker::class)->driver();
-
-        $this->assertSame($first, $second);
-    }
-}
+    expect($first)->toEqual($second);
+});

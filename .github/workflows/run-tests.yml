@@ -53,4 +53,4 @@ jobs:
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update --no-scripts
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-scripts
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: vendor/bin/pest --compact
