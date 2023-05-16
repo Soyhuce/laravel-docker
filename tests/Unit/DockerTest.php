@@ -20,6 +20,7 @@ test('socket driver created', function (): void {
 
     expect($driver)->toBeInstanceOf(SocketDockerDriver::class);
 });
+
 test('driver not found throw exception', function (): void {
     app(Docker::class)->driver('foo');
 })->throws(InvalidArgumentException::class, 'Driver [foo] is not supported.');
