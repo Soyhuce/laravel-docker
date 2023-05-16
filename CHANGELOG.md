@@ -24,7 +24,7 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 - Nothing
 
-## [1.9.0] - YYYY-MM-DD
+## [1.9.0] - 2023-05-16
 
 ### Added
 
