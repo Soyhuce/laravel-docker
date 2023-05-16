@@ -3,12 +3,12 @@
 namespace Soyhuce\Docker\Services;
 
 use Illuminate\Support\Collection;
-use Soyhuce\Docker\DTO\ImageItem;
+use Soyhuce\Docker\Data\ImageItem;
 
 class DockerImageService extends DockerService
 {
     /**
-     * @return \Illuminate\Support\Collection<int, \Soyhuce\Docker\DTO\ImageItem>
+     * @return \Illuminate\Support\Collection<int, \Soyhuce\Docker\Data\ImageItem>
      */
     public function all(): Collection
     {
@@ -16,7 +16,7 @@ class DockerImageService extends DockerService
             ->asGet()
             ->send('/images/json');
 
-        return new Collection(array_map(static fn ($item) => ImageItem::fromResponse($item), $response));
+        return new Collection(array_map(static fn ($item) => ImageItem::from($item), $response));
     }
 
     public function create(string $imageName, string $tag = 'latest'): bool

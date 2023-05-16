@@ -2,7 +2,7 @@
 
 namespace Soyhuce\Docker\Services;
 
-use Soyhuce\Docker\DTO\ContainerCreateItem;
+use Soyhuce\Docker\Data\ContainerCreateItem;
 
 class DockerContainerService extends DockerService
 {
@@ -25,7 +25,7 @@ class DockerContainerService extends DockerService
                 )
             );
 
-        return new ContainerCreateItem($response);
+        return ContainerCreateItem::from($response);
     }
 
     public function start(string $containerId): bool

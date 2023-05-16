@@ -24,6 +24,26 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 - Nothing
 
+## [1.9.0] - YYYY-MM-DD
+
+### Added
+
+- Suppression spatie/data-transfer-object
+- Ajout spatie/laravel-data
+
+## [1.8.0] - 2023-02-03
+
+### Added
+
+- Run tests without deprecation handling
+- Laravel 10 support
+
+## [1.7.0] - 2022-10-21
+
+### Added
+
+- PHP 8.2, drop PHP 8.0
+
 ## [1.6.0] - 2022-02-24
 
 ### Added

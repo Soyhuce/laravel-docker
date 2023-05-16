@@ -4,6 +4,7 @@ namespace Test;
 
 use Illuminate\Foundation\Testing\Concerns\InteractsWithDeprecationHandling;
 use Soyhuce\Docker\ServiceProvider;
+use Spatie\LaravelData\LaravelDataServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -19,6 +20,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         return [
             ServiceProvider::class,
+            LaravelDataServiceProvider::class,
         ];
     }
 }
