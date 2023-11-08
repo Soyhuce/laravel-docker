@@ -10,7 +10,7 @@ class StreamResponse
     /** @var resource */
     private $curlHandle;
 
-    private string $data;
+    private string $data = '';
 
     public function __construct()
     {
@@ -18,8 +18,6 @@ class StreamResponse
         $this->curlHandle = curl_init();
 
         curl_multi_add_handle($this->curlMultiHandle, $this->curlHandle);
-
-        $this->data = '';
     }
 
     public function __destruct()

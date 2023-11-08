@@ -7,16 +7,12 @@ use function count;
 
 class Response
 {
-    protected StreamResponse $response;
-
     private array $header;
 
     private string $body;
 
-    public function __construct(StreamResponse $response)
+    public function __construct(protected StreamResponse $response)
     {
-        $this->response = $response;
-
         $this->parseHeaders();
     }
 
