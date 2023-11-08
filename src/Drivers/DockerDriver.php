@@ -4,12 +4,10 @@ namespace Soyhuce\Docker\Drivers;
 
 abstract class DockerDriver
 {
-    /** @var array<mixed> */
-    protected array $config;
-
-    public function __construct(array $config = [])
-    {
-        $this->config = $config;
+    public function __construct(
+        /** @var array<mixed> */
+        protected array $config = [],
+    ) {
     }
 
     public function prepareUrl(string $path, array $params = []): string
