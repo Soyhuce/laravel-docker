@@ -49,14 +49,14 @@ test('images are retrieved', function (): void {
     expect($response)->toEqual(collect([
         ImageItem::from([
             'id' => 'sha256:ec3f0931a6e6b6855d76b2d7b0be30e81860baccd891b2e243280bf1cd8ad710',
-            'created' => 1644009612,
+            'created' => 1_644_009_612,
             'repoTags' => [
                 'example:1.0',
                 'example:latest',
                 'example:stable',
                 'internal.registry.example.com:5000/example:1.0',
             ],
-            'size' => 172064416,
+            'size' => 172_064_416,
         ]),
     ]));
 });

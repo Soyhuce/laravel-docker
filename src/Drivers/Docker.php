@@ -11,7 +11,7 @@ class Docker
 
     public function driver(?string $name = null): DockerDriver
     {
-        $name = $name ?? $this->getDefaultDriver();
+        $name ??= $this->getDefaultDriver();
 
         return $this->drivers[$name] = $this->get($name);
     }
