@@ -41,7 +41,7 @@ class Response
      */
     public function getData()
     {
-        return json_decode($this->getBody(), true) ?? [];
+        return json_decode($this->getBody(), true, 512, JSON_THROW_ON_ERROR) ?? [];
     }
 
     public function getBody(): string

@@ -16,16 +16,14 @@ class ApiDockerDriver extends DockerDriver
     public function send(string $path, array $params = [], ?array $data = null, array $headers = []): array
     {
         $response = Http
-            ::withHeaders(array_merge([
-                'Content-type' => 'application/json',
-            ], $headers))
+            ::withHeaders(['Content-type' => 'application/json', ...$headers])
                 ->{$this->method}(
                     $this->prepareUrl($path, $params),
                     $data
                 )
                 ->throw();
 
-        return json_decode($response->body(), true);
+        return json_decode((string) $response->body(), true, 512, JSON_THROW_ON_ERROR);
     }
 
     public function asGet(): self

@@ -54,16 +54,13 @@ class DockerClient
         }
 
         if ($data !== null) {
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data, JSON_THROW_ON_ERROR));
         }
 
-        $headers = array_merge([
-            'Content-type: application/json',
-            'Expect:',
-        ], $headers);
+        $headers = ['Content-type: application/json', 'Expect:', ...$headers];
 
         foreach ($headers as $numKey => $header) {
-            $key = mb_strtolower(mb_substr($header, 0, mb_strpos($header, ':')));
+            $key = mb_strtolower(mb_substr((string) $header, 0, mb_strpos((string) $header, ':')));
             $headers[$key] = $header;
             unset($headers[$numKey]);
         }

@@ -37,12 +37,10 @@ class SocketDockerDriver extends DockerDriver
         });
 
         if ($data !== null) {
-            curl_setopt($this->handle, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($this->handle, CURLOPT_POSTFIELDS, json_encode($data, JSON_THROW_ON_ERROR));
         }
 
-        $headers = array_merge([
-            'Content-type: application/json',
-        ], $headers);
+        $headers = ['Content-type: application/json', ...$headers];
 
         curl_setopt($this->handle, CURLOPT_HTTPHEADER, $headers);
 
@@ -96,7 +94,7 @@ class SocketDockerDriver extends DockerDriver
         $response = new Response($this->response);
         $data = $response->getData();
 
-        if ((int) mb_substr($this->response->getStatus(), 0, 1) !== 2) {
+        if ((int) mb_substr((string) $this->response->getStatus(), 0, 1) !== 2) {
             $message = data_get($data, 'message', 'Internal Server Error');
 
             throw new Exception($message, $this->response->getStatus());
