@@ -29,7 +29,7 @@
     "mockery/mockery": "^1.4",
     "nunomaduro/larastan": "^2.3",
     "orchestra/testbench": "^8.0",
-    "pestphp/pest": "^2.24 || ^2.6"
+    "pestphp/pest": "^2.24"
   },
   "autoload": {
     "psr-4": {

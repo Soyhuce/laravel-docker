@@ -13,10 +13,14 @@ class DockerContainerService extends DockerService
             ->send(
                 '/containers/create',
                 ['name' => $containerName],
-                [...$options, 'Image' => $imageName, 'HostConfig' => [
-                    'AutoRemove' => true,
-                    'ExtraHosts' => config('docker.extra_hosts'),
-                ]]
+                [
+                    ...$options,
+                    'Image' => $imageName,
+                    'HostConfig' => [
+                        'AutoRemove' => true,
+                        'ExtraHosts' => config('docker.extra_hosts'),
+                    ],
+                ]
             );
 
         return ContainerCreateItem::from($response);

@@ -11,8 +11,9 @@ class Response
 
     private string $body;
 
-    public function __construct(protected StreamResponse $response)
-    {
+    public function __construct(
+        protected StreamResponse $response,
+    ) {
         $this->parseHeaders();
     }
 
