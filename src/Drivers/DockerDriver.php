@@ -4,8 +4,10 @@ namespace Soyhuce\Docker\Drivers;
 
 abstract class DockerDriver
 {
+    /**
+     * @param array<mixed> $config
+     */
     public function __construct(
-        /** @var array<mixed> */
         protected array $config = [],
     ) {
     }

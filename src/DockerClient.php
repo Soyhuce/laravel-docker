@@ -9,8 +9,10 @@ use function is_callable;
 
 class DockerClient
 {
-    public function __construct(private string $version, private ?string $scheme = 'http')
-    {
+    public function __construct(
+        private string $version,
+        private ?string $scheme = 'http',
+    ) {
     }
 
     private function getUrl(string $path, array $params = []): string
