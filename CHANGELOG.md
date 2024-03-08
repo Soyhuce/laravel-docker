@@ -2,6 +2,14 @@
 
 All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
+## 1.11.0 - 2024-03-08
+
+### What's Changed
+
+* Laravel 11 by @ElRochito in https://github.com/Soyhuce/laravel-docker/pull/16
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-docker/compare/1.10.1...1.11.0
+
 ## [Next release] - YYYY-MM-DD
 
 ### Added
