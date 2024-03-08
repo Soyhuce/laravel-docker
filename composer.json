@@ -41,17 +41,10 @@
       "Test\\": "tests"
     }
   },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Soyhuce\\Docker\\ServiceProvider"
-      ]
-    }
-  },
   "archive": {
     "exclude": [
       ".gitignore",
-      "php_cs.dist.php",
+      ".php-cs-fixer.dist.php",
       "composer.lock",
       "vendor"
     ]
@@ -67,14 +60,19 @@
       "@analyse"
     ]
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "config": {
-    "preferred-install": "dist",
     "sort-packages": true,
     "allow-plugins": {
-      "bamarni/composer-bin-plugin": true,
       "pestphp/pest-plugin": true
     }
-  }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Soyhuce\\Docker\\ServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
