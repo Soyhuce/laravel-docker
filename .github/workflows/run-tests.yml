@@ -15,6 +15,7 @@ jobs:
         os: [ ubuntu-latest ]
         php: [ 8.2, 8.3 ]
         laravel: [ 10.*, 11.* ]
+        phpunit: [ ^10.0 ]
         laravel-data: [ ^3.9, ^4.0 ]
         stability: [ prefer-lowest, prefer-stable ]
         include:
@@ -22,8 +23,11 @@ jobs:
             testbench: 8.*
           - laravel: 11.*
             testbench: 9.*
+        exclude:
+          - laravel: 11.*
+            laravel-data: ^3.9
     
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - DATA${{ matrix.laravel-data }}- ${{ matrix.stability }} - ${{ matrix.os }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - PU${{ matrix.phpunit }}- DATA${{ matrix.laravel-data }}- ${{ matrix.stability }} - ${{ matrix.os }}
     
     steps:
       - name: Checkout code
@@ -36,9 +40,15 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
           coverage: none
       
+      - name: Setup problem matchers
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+      
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "spatie/laravel-data:${{ matrix.laravel-data }}" --no-interaction --no-update
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "phpunit/phpunit:${{ matrix.phpunit }}"  "spatie/laravel-data:${{ matrix.laravel-data }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+      
       - name: Execute tests
         run: vendor/bin/pest
