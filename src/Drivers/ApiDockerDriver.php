@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Soyhuce\Docker\Drivers;
 
@@ -15,8 +15,7 @@ class ApiDockerDriver extends DockerDriver
 
     public function send(string $path, array $params = [], ?array $data = null, array $headers = []): array
     {
-        $response = Http
-            ::withHeaders(['Content-type' => 'application/json', ...$headers])
+        $response = Http::withHeaders(['Content-type' => 'application/json', ...$headers])
                 ->{$this->method}(
                     $this->prepareUrl($path, $params),
                     $data
