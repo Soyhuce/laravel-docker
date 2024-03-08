@@ -24,6 +24,12 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 - Nothing
 
+## [2.0.0] - 2024-03-08
+
+### Added
+
+- Support Laravel 11
+
 ## [1.9.0] - 2023-05-16
 
 ### Added

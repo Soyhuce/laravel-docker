@@ -52,7 +52,7 @@
   "archive": {
     "exclude": [
       ".gitignore",
-      ".php-cs-fixer.php",
+      "php_cs.dist.php",
       "composer.lock",
       "vendor"
     ]
