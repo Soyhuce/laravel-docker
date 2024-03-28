@@ -10,28 +10,6 @@ All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
 **Full Changelog**: https://github.com/Soyhuce/laravel-docker/compare/1.10.1...1.11.0
 
-## [Next release] - YYYY-MM-DD
-
-### Added
-
-- Nothing
-
-### Changed
-
-- Nothing
-
-### Deprecated
-
-- Nothing
-
-### Fixed
-
-- Nothing
-
-### Security
-
-- Nothing
-
 ## [1.9.0] - 2023-05-16
 
 ### Added
