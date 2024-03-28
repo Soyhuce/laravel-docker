@@ -2,6 +2,14 @@
 
 All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
+## 1.12.0 - 2024-03-28
+
+### What's Changed
+
+* Set orchestra dependency as dev by @ElRochito in https://github.com/Soyhuce/laravel-docker/pull/17
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-docker/compare/1.11.0...1.12.0
+
 ## 1.11.0 - 2024-03-08
 
 ### What's Changed
