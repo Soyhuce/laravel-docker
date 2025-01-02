@@ -2,6 +2,18 @@
 
 All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
+## 1.13.0 - 2025-01-02
+
+### What's Changed
+
+* List containers by @GamerClassN7 in https://github.com/Soyhuce/laravel-docker/pull/18
+
+### New Contributors
+
+* @GamerClassN7 made their first contribution in https://github.com/Soyhuce/laravel-docker/pull/18
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-docker/compare/1.12.0...1.13.0
+
 ## 1.12.0 - 2024-03-28
 
 ### What's Changed
