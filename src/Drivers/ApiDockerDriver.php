@@ -13,6 +13,12 @@ class ApiDockerDriver extends DockerDriver
         return $this->config['url'];
     }
 
+    /**
+     * @param array<string, mixed> $params
+     * @param array<string, mixed>|null $data
+     * @param array<string, mixed> $headers
+     * @return array<array-key, mixed>
+     */
     public function send(string $path, array $params = [], ?array $data = null, array $headers = []): array
     {
         $response = Http::withHeaders(['Content-type' => 'application/json', ...$headers])

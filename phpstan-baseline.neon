@@ -1,56 +1,85 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Parameter \\#1 \\$handle of function curl_setopt expects CurlHandle, resource given\\.$#"
+			message: '#^Parameter \#1 \$handle of function curl_setopt expects CurlHandle, resource given\.$#'
+			identifier: argument.type
 			count: 7
 			path: src/DockerClient.php
 
 		-
-			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\<0, max\\>\\|false given\\.$#"
+			message: '#^Parameter \#3 \$length of function mb_substr expects int\|null, int\<0, max\>\|false given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/DockerClient.php
 
 		-
-			message: "#^Parameter \\#1 \\$handle of function curl_setopt expects CurlHandle, resource given\\.$#"
+			message: '#^Parameter \#3 \$value of function curl_setopt expects non\-empty\-string, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DockerClient.php
+
+		-
+			message: '#^Parameter \#1 \$handle of function curl_setopt expects CurlHandle, resource given\.$#'
+			identifier: argument.type
 			count: 11
 			path: src/Drivers/SocketDockerDriver.php
 
 		-
-			message: "#^Property Soyhuce\\\\Docker\\\\Drivers\\\\SocketDockerDriver\\:\\:\\$handle \\(resource\\) does not accept resource\\|false\\.$#"
+			message: '#^Parameter \#3 \$value of function curl_setopt expects array\<int, string\>, array\<int\|string, mixed\> given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Drivers/SocketDockerDriver.php
 
 		-
-			message: "#^Parameter \\#1 \\$handle of function curl_getinfo expects CurlHandle, resource given\\.$#"
+			message: '#^Parameter \#3 \$value of function curl_setopt expects non\-empty\-string, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Drivers/SocketDockerDriver.php
+
+		-
+			message: '#^Property Soyhuce\\Docker\\Drivers\\SocketDockerDriver\:\:\$handle \(resource\) does not accept resource\|false\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Drivers/SocketDockerDriver.php
+
+		-
+			message: '#^Parameter \#1 \$handle of function curl_getinfo expects CurlHandle, resource given\.$#'
+			identifier: argument.type
 			count: 2
 			path: src/Model/StreamResponse.php
 
 		-
-			message: "#^Parameter \\#1 \\$multi_handle of function curl_multi_close expects CurlMultiHandle, resource given\\.$#"
+			message: '#^Parameter \#1 \$multi_handle of function curl_multi_close expects CurlMultiHandle, resource given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Model/StreamResponse.php
 
 		-
-			message: "#^Parameter \\#1 \\$multi_handle of function curl_multi_exec expects CurlMultiHandle, resource given\\.$#"
+			message: '#^Parameter \#1 \$multi_handle of function curl_multi_exec expects CurlMultiHandle, resource given\.$#'
+			identifier: argument.type
 			count: 2
 			path: src/Model/StreamResponse.php
 
 		-
-			message: "#^Parameter \\#1 \\$multi_handle of function curl_multi_remove_handle expects CurlMultiHandle, resource given\\.$#"
+			message: '#^Parameter \#1 \$multi_handle of function curl_multi_remove_handle expects CurlMultiHandle, resource given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Model/StreamResponse.php
 
 		-
-			message: "#^Parameter \\#2 \\$handle of function curl_multi_remove_handle expects CurlHandle, resource given\\.$#"
+			message: '#^Parameter \#2 \$handle of function curl_multi_remove_handle expects CurlHandle, resource given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Model/StreamResponse.php
 
 		-
-			message: "#^Property Soyhuce\\\\Docker\\\\Model\\\\StreamResponse\\:\\:\\$curlHandle \\(resource\\) does not accept \\(CurlHandle\\|false\\)\\.$#"
+			message: '#^Property Soyhuce\\Docker\\Model\\StreamResponse\:\:\$curlHandle \(resource\) does not accept \(CurlHandle\|false\)\.$#'
+			identifier: assign.propertyType
 			count: 1
 			path: src/Model/StreamResponse.php
 
 		-
-			message: "#^Property Soyhuce\\\\Docker\\\\Model\\\\StreamResponse\\:\\:\\$curlMultiHandle \\(resource\\) does not accept CurlMultiHandle\\.$#"
+			message: '#^Property Soyhuce\\Docker\\Model\\StreamResponse\:\:\$curlMultiHandle \(resource\) does not accept CurlMultiHandle\.$#'
+			identifier: assign.propertyType
 			count: 1
 			path: src/Model/StreamResponse.php

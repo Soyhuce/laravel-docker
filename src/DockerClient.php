@@ -15,6 +15,9 @@ class DockerClient
     ) {
     }
 
+    /**
+     * @param array<string, mixed> $params
+     */
     private function getUrl(string $path, array $params = []): string
     {
         if ($path[0] !== '/') {
@@ -28,6 +31,11 @@ class DockerClient
         return mb_strlen($query) ? "{$url}?{$query}" : $url;
     }
 
+    /**
+     * @param array<string, mixed>|null $data
+     * @param array<string, mixed> $headers
+     * @return array<array-key, mixed>
+     */
     private function makeRequest(string $url, ?callable $callback = null, ?array $data = null, array $headers = []): array
     {
         $response = new StreamResponse();
@@ -36,8 +44,8 @@ class DockerClient
         $ch = $response->getCurlHandle();
 
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HEADER, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_UNIX_SOCKET_PATH, config('docker.unix_socket'));
         curl_setopt($ch, CURLOPT_WRITEFUNCTION, static function ($ch, $str) use ($response): int {
             $response->writeData($str);
@@ -70,6 +78,12 @@ class DockerClient
         return Response::make($response)->getData();
     }
 
+    /**
+     * @param array<string, mixed> $params
+     * @param array<string, mixed>|null $data
+     * @param array<string, mixed> $headers
+     * @return array<array-key, mixed>
+     */
     public function get(string $path, array $params = [], ?array $data = null, array $headers = []): array
     {
         $url = $this->getUrl($path, $params);
@@ -77,6 +91,12 @@ class DockerClient
         return $this->makeRequest($url, null, $data, $headers);
     }
 
+    /**
+     * @param array<string, mixed> $params
+     * @param array<string, mixed>|null $data
+     * @param array<string, mixed> $headers
+     * @return array<array-key, mixed>
+     */
     public function delete(string $path, array $params = [], ?array $data = null, array $headers = []): array
     {
         $url = $this->getUrl($path, $params);
@@ -87,21 +107,33 @@ class DockerClient
         return $this->makeRequest($url, $callback, $data, $headers);
     }
 
+    /**
+     * @param array<string, mixed> $params
+     * @param array<string, mixed> $data
+     * @param array<string, mixed> $headers
+     * @return array<array-key, mixed>
+     */
     public function post(string $path, array $params = [], array $data = [], array $headers = []): array
     {
         $url = $this->getUrl($path, $params);
         $callback = static function ($ch): void {
-            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POST, true);
         };
 
         return $this->makeRequest($url, $callback, $data, $headers);
     }
 
+    /**
+     * @param array<string, mixed> $params
+     * @param array<string, mixed> $data
+     * @param array<string, mixed> $headers
+     * @return array<array-key, mixed>
+     */
     public function put(string $path, array $params = [], array $data = [], array $headers = []): array
     {
         $url = $this->getUrl($path, $params);
         $callback = static function ($ch): void {
-            curl_setopt($ch, CURLOPT_PUT, 1);
+            curl_setopt($ch, CURLOPT_PUT, true);
         };
 
         return $this->makeRequest($url, $callback, $data, $headers);

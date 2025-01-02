@@ -24,11 +24,17 @@ class SocketDockerDriver extends DockerDriver
         return 'http:/';
     }
 
+    /**
+     * @param array<string, mixed> $params
+     * @param array<string, mixed>|null $data
+     * @param array<string, mixed> $headers
+     * @return array<array-key, mixed>
+     */
     public function send(string $path, array $params = [], ?array $data = null, array $headers = []): array
     {
         curl_setopt($this->handle, CURLOPT_URL, $this->prepareUrl($path, $params));
-        curl_setopt($this->handle, CURLOPT_HEADER, 1);
-        curl_setopt($this->handle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($this->handle, CURLOPT_HEADER, true);
+        curl_setopt($this->handle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($this->handle, CURLOPT_UNIX_SOCKET_PATH, $this->config['unix_socket']);
         curl_setopt($this->handle, CURLOPT_WRITEFUNCTION, function ($ch, $str): int {
             $this->response->writeData($str);
@@ -85,6 +91,9 @@ class SocketDockerDriver extends DockerDriver
         return $this;
     }
 
+    /**
+     * @return array<array-key, mixed>
+     */
     protected function prepareResponse(): array
     {
         if ($this->response->getStatus() === 0) {
