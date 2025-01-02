@@ -4,6 +4,7 @@
 
 namespace Test\Unit;
 
+use Illuminate\Support\Facades\Http;
 use Soyhuce\Docker\Data\ContainerCreateItem;
 use Soyhuce\Docker\Services\DockerContainerService;
 
@@ -45,4 +46,13 @@ test('container is started', function (): void {
     $response = app(DockerContainerService::class)->start('123456789');
 
     expect($response)->toBeTrue();
+});
+
+test('containers are retrieved', function (): void {
+    Http::fakeSequence()
+        ->pushFile(__DIR__ . '/stubs/containers.json');
+
+    $response = app(DockerContainerService::class)->all();
+
+    expect($response)->toHaveCount(1);
 });

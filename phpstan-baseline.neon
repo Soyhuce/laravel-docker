@@ -21,6 +21,16 @@ parameters:
 			path: src/Drivers/SocketDockerDriver.php
 
 		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: string, 2\\?\\: string\\}\\.$#"
+			count: 1
+			path: src/Model/Response.php
+
+		-
+			message: "#^Offset 2 does not exist on array\\{0\\?\\: string, 1\\?\\: string, 2\\?\\: string\\}\\.$#"
+			count: 1
+			path: src/Model/Response.php
+
+		-
 			message: "#^Parameter \\#1 \\$handle of function curl_getinfo expects CurlHandle, resource given\\.$#"
 			count: 2
 			path: src/Model/StreamResponse.php
@@ -46,7 +56,7 @@ parameters:
 			path: src/Model/StreamResponse.php
 
 		-
-			message: "#^Property Soyhuce\\\\Docker\\\\Model\\\\StreamResponse\\:\\:\\$curlHandle \\(resource\\) does not accept CurlHandle\\.$#"
+			message: "#^Property Soyhuce\\\\Docker\\\\Model\\\\StreamResponse\\:\\:\\$curlHandle \\(resource\\) does not accept \\(CurlHandle\\|false\\)\\.$#"
 			count: 1
 			path: src/Model/StreamResponse.php
 

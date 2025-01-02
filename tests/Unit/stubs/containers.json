@@ -1,0 +1,47 @@
+[
+  {
+    "Id": "02d3890e4d4e81fbc61df0ab93bc051bc75bffd22abd453c892f5ceddbc6e327",
+    "Names": [
+      "\/determined_liskov"
+    ],
+    "Image": "nginx:latest",
+    "ImageID": "sha256:66f8bdd3810c96dc5c28aec39583af731b34a2cd99471530f53c8794ed5b423e",
+    "Command": "\/docker-entrypoint.sh bash",
+    "Created": 1735820912,
+    "Ports": [
+      {
+        "PrivatePort": 80,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
+    },
+    "State": "running",
+    "Status": "Up 6 minutes",
+    "HostConfig": {
+      "NetworkMode": "bridge"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "bridge": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "MacAddress": "02:42:ac:11:00:02",
+          "DriverOpts": null,
+          "NetworkID": "cfe869b1021192c126f4e70daa8780f9ae96b42d330526825272db81d3518564",
+          "EndpointID": "65f52c483eb083a277d943222f7a362ea004ca1581c31a329dcada9fd513646a",
+          "Gateway": "172.17.0.1",
+          "IPAddress": "172.17.0.2",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "DNSNames": null
+        }
+      }
+    },
+    "Mounts": []
+  }
+]
