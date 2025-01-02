@@ -65,4 +65,13 @@ class DockerContainerService extends DockerService
 
         return true;
     }
+
+    public function list(): array
+    {
+        $response = $this->driver()
+        ->asGet()
+        ->send("/containers/json");
+
+        return $response;
+    }    
 }
