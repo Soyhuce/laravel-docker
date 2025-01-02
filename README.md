@@ -1,7 +1,9 @@
 # Docker
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/soyhuce/laravel-docker.svg?style=flat-square)](https://packagist.org/packages/soyhuce/laravel-docker)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/soyhuce/laravel-docker/run-tests?label=tests)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/soyhuce/laravel-docker/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/soyhuce/laravel-docker/actions/workflows/run-tests.yml)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/soyhuce/laravel-docker/phpstan.yml?branch=main&label=phpstan&style=flat-square)](https://github.com/soyhuce/laravel-docker/actions/workflows/phpstan.yml)
+[![GitHub PHPStan Action Status](https://img.shields.io/github/actions/workflow/status/soyhuce/laravel-docker/php-cs-fixer.yml?branch=main&label=php-cs-fixer&style=flat-square)](https://github.com/soyhuce/laravel-docker/actions/workflows/php-cs-fixer.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/soyhuce/laravel-docker.svg?style=flat-square)](https://packagist.org/packages/soyhuce/laravel-docker)
 
 This package allows you to communicate with a Docker instance via unix socket or API.
