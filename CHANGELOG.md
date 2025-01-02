@@ -2,6 +2,14 @@
 
 All notable changes to `soyhuce/laravel-docker` will be documented in this file
 
+## 2.0.0 - 2025-01-02
+
+### What's Changed
+
+* Upgrade dependencies and php 8.4 by @bastien-phi in https://github.com/Soyhuce/laravel-docker/pull/20
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-docker/compare/1.13.0...2.0.0
+
 ## 1.13.0 - 2025-01-02
 
 ### What's Changed
