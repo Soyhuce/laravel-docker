@@ -8,7 +8,7 @@ use Soyhuce\Docker\Data\ImageItem;
 class DockerImageService extends DockerService
 {
     /**
-     * @return \Illuminate\Support\Collection<int, \Soyhuce\Docker\Data\ImageItem>
+     * @return Collection<int, ImageItem>
      */
     public function all(): Collection
     {

@@ -2,10 +2,24 @@
 
 namespace Soyhuce\Docker\Services;
 
+use Illuminate\Support\Collection;
 use Soyhuce\Docker\Data\ContainerCreateItem;
+use Soyhuce\Docker\Data\ContainerItem;
 
 class DockerContainerService extends DockerService
 {
+    /**
+     * @return Collection<int, ContainerItem>
+     */
+    public function all(): Collection
+    {
+        $response = $this->driver()
+            ->asGet()
+            ->send('/containers/json');
+
+        return new Collection(array_map(static fn ($item) => ContainerItem::from($item), $response));
+    }
+
     public function create(string $imageName, string $containerName, array $options = []): ContainerCreateItem
     {
         $response = $this->driver()
@@ -65,13 +79,4 @@ class DockerContainerService extends DockerService
 
         return true;
     }
-
-    public function list(): array
-    {
-        $response = $this->driver()
-        ->asGet()
-        ->send("/containers/json");
-
-        return $response;
-    }    
 }
