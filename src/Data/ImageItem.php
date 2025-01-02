@@ -10,6 +10,9 @@ use Spatie\LaravelData\Data;
 
 class ImageItem extends Data
 {
+    /**
+     * @param array<int, string> $repoTags
+     */
     public function __construct(
         #[MapInputName('Id')]
         public string $id,

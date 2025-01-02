@@ -7,6 +7,7 @@ use function count;
 
 class Response
 {
+    /** @var array<string, mixed> */
     private array $header;
 
     private string $body;
@@ -28,15 +29,16 @@ class Response
         $headerLines = array_slice($headerLines, 1, count($headerLines) - 3);
         $this->header = [];
         foreach ($headerLines as $headerLine) {
-            preg_match('#(.*?): (.*)#', $headerLine, $matches);
-            $this->header[mb_strtolower($matches[1])] = $matches[2];
+            if (preg_match('#(.*?): (.*)#', $headerLine, $matches) !== false) {
+                $this->header[mb_strtolower($matches[1])] = $matches[2];
+            }
         }
     }
 
     /**
-     * @return array<mixed>
+     * @return array<array-key, mixed>
      */
-    public function getData()
+    public function getData(): array
     {
         return json_decode($this->getBody(), true) ?? [];
     }

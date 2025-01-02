@@ -9,17 +9,21 @@ use Soyhuce\Docker\Data\ContainerItem;
 class DockerContainerService extends DockerService
 {
     /**
+     * @param array<string, mixed> $options
      * @return Collection<int, ContainerItem>
      */
-    public function all(): Collection
+    public function all(array $options = []): Collection
     {
         $response = $this->driver()
             ->asGet()
-            ->send('/containers/json');
+            ->send('/containers/json', $options);
 
         return new Collection(array_map(static fn ($item) => ContainerItem::from($item), $response));
     }
 
+    /**
+     * @param array<string, mixed> $options
+     */
     public function create(string $imageName, string $containerName, array $options = []): ContainerCreateItem
     {
         $response = $this->driver()

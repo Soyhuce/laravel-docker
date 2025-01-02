@@ -8,13 +8,14 @@ use Soyhuce\Docker\Data\ImageItem;
 class DockerImageService extends DockerService
 {
     /**
+     * @param array<string, mixed> $options
      * @return Collection<int, ImageItem>
      */
-    public function all(): Collection
+    public function all(array $options = []): Collection
     {
         $response = $this->driver()
             ->asGet()
-            ->send('/images/json');
+            ->send('/images/json', $options);
 
         return new Collection(array_map(static fn ($item) => ImageItem::from($item), $response));
     }
@@ -31,6 +32,9 @@ class DockerImageService extends DockerService
         return true;
     }
 
+    /**
+     * @param array<string, mixed> $options
+     */
     public function remove(string $imageName, array $options = []): bool
     {
         $this->driver()

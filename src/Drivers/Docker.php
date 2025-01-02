@@ -6,7 +6,7 @@ use InvalidArgumentException;
 
 class Docker
 {
-    /** @var array<mixed> */
+    /** @var array<string, DockerDriver> */
     private array $drivers = [];
 
     public function driver(?string $name = null): DockerDriver
@@ -39,16 +39,25 @@ class Docker
         throw new InvalidArgumentException("Driver [{$name}] is not supported.");
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     protected function getConfig(string $name): ?array
     {
         return config("docker.drivers.{$name}");
     }
 
+    /**
+     * @param array<string, mixed> $config
+     */
     protected function createSocketDriver(array $config): DockerDriver
     {
         return new SocketDockerDriver($config);
     }
 
+    /**
+     * @param array<string, mixed> $config
+     */
     protected function createApiDriver(array $config): DockerDriver
     {
         return new ApiDockerDriver($config);
