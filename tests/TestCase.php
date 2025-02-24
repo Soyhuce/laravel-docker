@@ -23,4 +23,27 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             LaravelDataServiceProvider::class,
         ];
     }
+
+    protected function withoutDeprecationHandling(): static
+    {
+        if ($this->originalDeprecationHandler == null) {
+            $this->originalDeprecationHandler = set_error_handler(function (
+                $level,
+                $message,
+                $file = '',
+                $line = 0,
+            ): void {
+                if (in_array($level, [E_DEPRECATED, E_USER_DEPRECATED], true) || (error_reporting() & $level)) {
+                    // Silenced vendor errors
+                    if (str_starts_with($file, realpath(__DIR__ . '/../vendor/guzzlehttp/promises'))) {
+                        return;
+                    }
+
+                    throw new ErrorException($message, 0, $level, $file, $line);
+                }
+            });
+        }
+
+        return $this;
+    }
 }
