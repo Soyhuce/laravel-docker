@@ -40,6 +40,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                     if (str_starts_with($file, realpath(__DIR__ . '/../vendor/guzzlehttp/promises'))) {
                         return;
                     }
+                    if (str_starts_with($file, realpath(__DIR__ . '/../vendor/guzzlehttp/psr7'))) {
+                        return;
+                    }
 
                     throw new ErrorException($message, 0, $level, $file, $line);
                 }
