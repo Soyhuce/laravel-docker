@@ -29,7 +29,7 @@ class Response
         $headerLines = array_slice($headerLines, 1, count($headerLines) - 3);
         $this->header = [];
         foreach ($headerLines as $headerLine) {
-            if (preg_match('#(.*?): (.*)#', $headerLine, $matches) !== false) {
+            if (preg_match('#(.*?): (.*)#', $headerLine, $matches) === 1) {
                 $this->header[mb_strtolower($matches[1])] = $matches[2];
             }
         }
