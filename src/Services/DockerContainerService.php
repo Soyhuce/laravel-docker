@@ -26,18 +26,23 @@ class DockerContainerService extends DockerService
      */
     public function create(string $imageName, string $containerName, array $options = []): ContainerCreateItem
     {
+        $hostConfig = array_merge(
+            [
+                'AutoRemove' => true,
+                'ExtraHosts' => config('docker.extra_hosts'),
+            ],
+            $options['HostConfig'] ?? []
+        );
+
         $response = $this->driver()
             ->asPost()
             ->send(
                 '/containers/create',
                 ['name' => $containerName],
                 [
-                    ...$options,
+                    ...array_diff_key($options, ['HostConfig' => null]),
                     'Image' => $imageName,
-                    'HostConfig' => [
-                        'AutoRemove' => true,
-                        'ExtraHosts' => config('docker.extra_hosts'),
-                    ],
+                    'HostConfig' => $hostConfig,
                 ]
             );
 
